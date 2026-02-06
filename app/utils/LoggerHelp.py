@@ -25,5 +25,5 @@ def logger_load(name: str):
 
     logger.addHandler(console_handler)
 
-    logger.info(f"Логгер '{name}' успешно настроен")
+    logger.debug(f"✅ Логгер '{name}' успешно настроен")
     return logger

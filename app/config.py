@@ -1,8 +1,10 @@
 import logging
 
+from app.utils.DateHelper import get_today_date
+
 LINK = {
     "IS_SET": False,
-    "URL": ""
+    "URL": None
 }
 
 LOGGER = {
@@ -11,4 +13,13 @@ LOGGER = {
     "FMT": "%(asctime)s [%(levelname)s] %(name)s::%(funcName)s() - %(message)s",
     "DATEFMT": "%d.%m.%Y %H:%M"
 }
+
+PARSER = {
+    "ATTEMPTS": 5,
+    "DELAY": 3,
+    "FILE_PATH": f"output/schedule_{get_today_date()}.xlsx",
+    "CURRENT_FILE": None
+}
+
+GROUPS = ['ГМУ-3-24-06', 'ГМУ-3-24-05-08']
 
