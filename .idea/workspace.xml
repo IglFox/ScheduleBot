@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2595eed5-b363-41f3-9752-fc597a70076a" name="Changes" comment="some handlers and files">
-      <change afterPath="$PROJECT_DIR$/app/utils/DateHelper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/UseData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ScheduleBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/ScheduleBot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/handlers/MainHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/MainHandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/handlers/ScheduleHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/ScheduleHandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/handlers/SettingsHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/handlers/LinkHandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/LoggerHelp.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/LoggerHelp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/ScheduleParse.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/ScheduleParse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/req.txt" beforeDir="false" afterPath="$PROJECT_DIR$/req.txt" afterDir="false" />
+    <list default="true" id="2595eed5-b363-41f3-9752-fc597a70076a" name="Changes" comment="version 1.0">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,12 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1770376220598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="version 1.0">
+      <option name="closed" value="true" />
+      <created>1770383042017</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770383042017</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add structure" />
     <MESSAGE value="some handlers and files" />
-    <option name="LAST_COMMIT_MESSAGE" value="some handlers and files" />
+    <MESSAGE value="version 1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="version 1.0" />
   </component>
 </project>

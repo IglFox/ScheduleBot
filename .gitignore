@@ -2,3 +2,6 @@
 app/.env
 output/
 tests/
+
+__pycache__/
+*.pyc
