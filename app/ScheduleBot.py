@@ -1,6 +1,8 @@
+import time
 from os import getenv
 import telebot
 from dotenv import load_dotenv
+from requests import ReadTimeout
 
 from app.handlers.MainHandler import get_help
 from app.handlers.ScheduleHandler import get_schedule
@@ -25,8 +27,26 @@ def register_handlers():
 register_handlers()
 
 def run():
-    logger.info("Бот запущен!")
-    bot.infinity_polling()
+    restart_attempts = 0
+    max_restart_attempts = 10
+
+    while True:
+        try:
+            logger.info("Бот запущен!")
+            bot.infinity_polling()
+            restart_attempts = 0
+
+        except ReadTimeout as e:
+            logger.warning(f"Таймаут соединения: {e}")
+            restart_attempts += 1
+            wait_time = min(2 ** restart_attempts, 60)
+            logger.info(f"Перезапуск через {wait_time} секунд...")
+            time.sleep(wait_time)
+
+        except Exception as e:
+            logger.error(f"Неожиданная ошибка: {e}")
+            restart_attempts += 1
+            time.sleep(5)
 
 
 if __name__ == "__main__":
