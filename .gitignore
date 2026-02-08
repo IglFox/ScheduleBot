@@ -2,6 +2,7 @@
 app/.env
 output/
 tests/
+.idea/
 
 __pycache__/
 *.pyc
