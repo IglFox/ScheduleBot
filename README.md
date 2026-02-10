@@ -76,7 +76,6 @@ python -m app.ScheduleBot
 ```shell
 RANEPA-bot/
 ├── app/
-│   ├── ScheduleBot.py
 │   ├── handlers/
 │   │   ├── MainHandler.py
 │   │   ├── ScheduleHandler.py
