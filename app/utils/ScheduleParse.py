@@ -13,7 +13,7 @@ logger = logger_load(__name__)
 
 retries = config.PARSER["ATTEMPTS"]
 delay = config.PARSER["DELAY"]
-file_path = config.PARSER["FILE_PATH"]
+raw_file_path = config.PARSER["FILE_PATH"]
 groups = config.GROUPS
 
 def parse_schedule(url: str) -> List[Dict[str, Any]]:

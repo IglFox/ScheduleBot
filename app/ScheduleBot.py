@@ -34,6 +34,10 @@ def run():
         try:
             logger.info("Бот запущен!")
             bot.infinity_polling()
+            if restart_attempts >= max_restart_attempts:
+                logger.info("Кол-во попыток превысило максимум. Завершение работы.")
+                break
+
             restart_attempts = 0
 
         except ReadTimeout as e:
