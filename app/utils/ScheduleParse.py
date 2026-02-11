@@ -1,3 +1,4 @@
+import os
 import time
 from typing import Dict, List, Any
 from io import StringIO
@@ -103,3 +104,16 @@ def export_to_excel(data: List[Dict[str, Any]]):
 
         except Exception as e:
             logger.error(f"❌ Ошибка при экспорте в Excel: {e}")
+
+def get_months():
+    if os.path.exists(file_path):
+        df = pd.read_excel(file_path)
+        df['дата'] = pd.to_datetime(df['дата'])
+
+        df['месяц'] = df['дата'].dt.month  # номер месяца (1-12)
+        df['месяц_название'] = df['дата'].dt.strftime('%B') # название месяца
+        months = df['месяц_название'].unique()
+        months_num = df['месяц'].unique()
+
+        return list(months), list(months_num)
+    return None
