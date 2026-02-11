@@ -67,6 +67,12 @@ dates_position = [
 
 check_week = 0
 
+months = {
+    1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель',
+    5: 'Май', 6: 'Июнь', 7: 'Июль', 8: 'Август',
+    9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+}
+
 TemplatePath = config.PARSER["TEMPLATE_FILE_PATH"]
 RawSchedulePath = config.PARSER["RAW_FILE_PATH"]
 CleanSchedulePath = config.PARSER["FILE_PATH"]
@@ -125,7 +131,7 @@ def count_days_between(start_date: str, end_date: str) -> int:
     else:
         start = datetime.strptime(start_date, "%d.%m.%Y")
         end = datetime.strptime(end_date, "%d.%m.%Y")
-        print(f"Расстояние между {start_date} и {end_date} дней: {(end - start).days}")
+        logger.info(f"Расстояние между {start_date} и {end_date} дней: {(end - start).days}")
         return (end - start).days
 
 def insert_data(dictionary: Dict[str, Dict[str, dict]], month: int) -> None:
@@ -144,7 +150,7 @@ def insert_data(dictionary: Dict[str, Dict[str, dict]], month: int) -> None:
 
             for day in current_week.keys():
                 if current_week[day] < maximum_week:
-                    print(f"было {current_week[day]} стало {maximum_week}")
+                    logger.info(f"была {current_week[day]} неделя - стала {maximum_week}")
                     current_week[day] = maximum_week
             start_date = dayDate
 
@@ -158,6 +164,11 @@ def insert_data(dictionary: Dict[str, Dict[str, dict]], month: int) -> None:
         subjectCount = -1
         dayDatePosition = dates_position[weekCount][dayOfWeekNum]
         insert_cell(dayDatePosition, str(datetime.strptime(dayDate, "%d.%m.%Y").day))
+
+        month_num = datetime.strptime(dayDate, "%d.%m.%Y").month
+        month_name = months[month_num]
+        insert_cell("C3", month_name)
+
 
         for subjectName in day["Предметы"].keys():
             subjectCount += 1
