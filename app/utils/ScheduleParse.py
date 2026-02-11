@@ -13,7 +13,7 @@ logger = logger_load(__name__)
 
 retries = config.PARSER["ATTEMPTS"]
 delay = config.PARSER["DELAY"]
-raw_file_path = config.PARSER["FILE_PATH"]
+file_path = config.PARSER["RAW_FILE_PATH"]
 groups = config.GROUPS
 
 def parse_schedule(url: str) -> List[Dict[str, Any]]:
@@ -100,7 +100,6 @@ def export_to_excel(data: List[Dict[str, Any]]):
 
             size_mb = final_df.memory_usage(deep=True).sum() / (1024 ** 2)
             logger.info(f"📁 Расписание успешно экспортировано в файл: {file_path}. Размер: {size_mb:.2f} МБ")
-            config.PARSER["CURRENT_FILE"] = file_path
 
         except Exception as e:
             logger.error(f"❌ Ошибка при экспорте в Excel: {e}")

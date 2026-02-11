@@ -22,9 +22,10 @@ LOGGER = {
 PARSER = {
     "ATTEMPTS": 5,
     "DELAY": 3,
-    "FILE_PATH": f"output/schedule_{get_today_date()}.xlsx",
+    "FILE_PATH": f"output/schedule.xlsx",
     "CURRENT_FILE": None,
-    "RAW_FILE_PATH": "output/raw.xlsx"
+    "RAW_FILE_PATH": "output/raw.xlsx",
+    "TEMPLATE_FILE_PATH": "output/template.xlsx"
 }
 
 GROUPS = ['ГМУ-3-24-06', 'ГМУ-3-24-05-08']
