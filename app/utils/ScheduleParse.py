@@ -1,4 +1,3 @@
-import locale
 import os
 import time
 from typing import Dict, List, Any
@@ -17,6 +16,12 @@ retries = config.PARSER["ATTEMPTS"]
 delay = config.PARSER["DELAY"]
 file_path = config.PARSER["RAW_FILE_PATH"]
 groups = config.GROUPS
+
+months = {
+    1: 'Январь', 2: 'Февраль', 3: 'Март', 4: 'Апрель',
+    5: 'Май', 6: 'Июнь', 7: 'Июль', 8: 'Август',
+    9: 'Сентябрь', 10: 'Октябрь', 11: 'Ноябрь', 12: 'Декабрь'
+}
 
 def parse_schedule(url: str) -> List[Dict[str, Any]]:
     """
@@ -108,17 +113,15 @@ def export_to_excel(data: List[Dict[str, Any]]):
 
 def get_months():
     logger.info("📅 Получаем список месяцев...")
-    locale.setlocale(locale.LC_TIME, 'russian')
 
     if os.path.exists(file_path):
         df = pd.read_excel(file_path)
         df['Дата'] = pd.to_datetime(df['Дата'], format='%d.%m.%Y')
 
         df['месяц'] = df['Дата'].dt.month  # номер месяца (1-12)
-        df['месяц_название'] = df['Дата'].dt.strftime('%B') # название месяца
-        months = df['месяц_название'].unique()
         months_num = df['месяц'].unique()
-        logger.info(f"✅ Список месяцев: {months}")
-        return list(months), list(months_num)
+        months_names = [months[num] for num in months_num]
+        logger.info(f"✅ Список месяцев: {months_names}")
+        return list(months_names), list(months_num)
     logger.error("❌ Не удалось получить месяца.")
     return [], []

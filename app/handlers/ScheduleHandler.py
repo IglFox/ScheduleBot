@@ -33,7 +33,7 @@ def get_schedule(message: Message, bot: TeleBot, ):
                 line = get_line(months, months_nums)
                 bot.reply_to(message, f"❌ Не указан месяц (/get -> n <-). В расписании присутствуют данные за месяца: \n{line}")
             return
-        bot.send_chat_action(message.chat.id, 'upload_document')
+        bot.send_chat_action(message.chat.id, 'upload_document', timeout=60)
 
         dict_schedule = parse_schedule(config.LINK["URL"])
         if dict_schedule:
