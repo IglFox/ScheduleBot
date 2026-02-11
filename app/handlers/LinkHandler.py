@@ -28,7 +28,7 @@ def set_link(message: Message, bot):
     try:
         logger.info(f"Пользователь @{message.from_user.username} отправил команду /link")
         write_to_file(f"Пользователь @{message.from_user.username} вызвал /link")
-
+        bot.send_chat_action(message.chat.id, 'typing')
         # Разделяем сообщение на части
         parts = message.text.split(maxsplit=1)
         if len(parts) < 2:

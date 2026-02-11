@@ -25,6 +25,7 @@ def get_schedule(message: Message, bot: TeleBot, ):
         month = message.text.split()[1] if len(message.text.split()) > 1 else None
 
         if month is None:
+            bot.send_chat_action(message.chat.id, 'typing')
             export_to_excel(parse_schedule(config.LINK["URL"]))
             months, months_nums = get_months()
             if months is None:
